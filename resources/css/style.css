@@ -85,7 +85,7 @@ main {
 }
 
 .banner img {
-  border: 1px solid lightgrey;
+  border: 1px solid white;
   margin-top: 2rem;
 }
 
@@ -156,7 +156,7 @@ main {
 
 @media only screen and (max-width: 780px) {
   .portfolio {
-    padding:0;
+    padding: 0;
     flex-direction: column;
     margin-bottom: 2rem;
   }
@@ -274,7 +274,7 @@ main {
 
 @media only screen and (max-width: 780px) {
   .about {
-    padding:0;
+    padding: 0;
     flex-direction: column;
     margin-bottom: 2rem;
   }
@@ -290,97 +290,51 @@ main {
   }
 }
 
+/*Rating*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Contact Form*/
-
-.getintouch {
-  text-align: center;
-  height: 45rem;
-  width: 60%;
-  margin: 0 auto;
-}
-
-.getintouch h3 {
-  font-family: Arial, sans-serif;
-  color: darkblue;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.contactform-container {
-  border: 1px solid darkblue;
-  border-radius: 5px;
-  background-color: pink;
-  padding: 20px;
-  margin: 0 auto;
-}
-
-input[type=text],
-input[type=email],
-select,
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid darkblue;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-input[type=submit] {
-  background-color: darkblue;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
+.testimonials {
   background-color: paleturquoise;
-  color: darkblue;
+  border-top: 1px solid black;
+  padding: 3rem;
+}
+
+.testimonials h1 {
+  text-align: center;
+  font-size: 4rem;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  margin-bottom: 4rem;
+}
+
+.ratings {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating img {
+  width: 30rem;
+}
+
+.rating p {
+  margin: 1rem 0;
+  color: black;
+  text-align: center;
+  width: 60%;
+}
+
+.rating span {
+  margin-bottom: 1rem;
 }
 
 /*Footer*/
