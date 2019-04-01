@@ -2,67 +2,77 @@
 <html>
 
 <head>
-    <title>Lisa Schumann | About</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="./style.css" type="text/css" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+  <title>Lisa Schumann</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="./resources/css/reset.css" type="text/css" rel="stylesheet">
+  <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
+  <meta charset="utf-8">
 </head>
 
 <body>
+  <!-- Header-->
+  <header id="top">
+    <div class="title">
+      <a href="index.html"><img src="/resources/images/logo.png" alt="Logo"></a>
+      <h1><a href="index.html">Lisa Schumann</a></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <header>
-        <nav>
-            <div class="nav-title">
-                <h1><a href="./index.html">Lisa Schumann</a></h1>
-            </div>
-            <div>
-                <span id="homenav"><a href="./index.html">Home</a></span>
-                <span><a href="./about.html">About</a></span>
-            </div>
-        </nav>
-    </header>
+  <main>
+    <!-- Banner-->
+    <div class="banner">
+      <img src="./resources/images/lisaprofilepicturecrop.jpg" alt="Lisa Schumann" width="300">
+      <p>Photo by <a href="http://www.instgram.com/jinlingjade" target="_blank">Jinling Jade.</a></p>
+      <h1>ABOUT</h1>
+    </div>
 
-    <main>
-        <div class="topsection">
-            <img src="./images/lisaprofilepicturecrop.jpg" alt="Lisa Schumann" width="300">
-            <p class="credit">Photo by <a href="http://www.instgram.com/jinlingjade" target="_blank">Jinling Jade.</a></p>
+
+    <!-- About-->
+    <div class="about">
+      <a href="#" target="_blank">
+        <div class="fact" id="from">
+          <h1>Originally from Germany, Lisa Schumann now lives in London. Spending her days programming and making music, she is excited to help you turn your web presence vision into reality.</h1>
         </div>
+      </a>
+    </div>
 
-        <div class="intro">
-            <p id="headlinefont">ABOUT</p>
-        </div>
-        <div id="about-text">
-            <p>Originally from Germany, Lisa Schumann now lives in London. Spending her days programming and making music, she is excited to help you turn your web presence vision into reality.</p>
-        </div>
-        <div class="getintouch">
-            <h3>GET IN TOUCH</h3>
-            <div class="contactform-container">
-                <form action="/action_page.php">
-                    <label for="fname">First Name</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name">
 
-                    <label for="lname">Last Name</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name">
-                    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your email address">
+    <div class="getintouch">
+      <h3>GET IN TOUCH</h3>
+      <div class="contactform-container">
+        <form action="/action_page.php">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name">
 
-                    <label for="subject">Subject</label>
-                    <textarea id="subject" name="subject" placeholder="Your message" style="height:200px"></textarea>
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name">
 
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
-        </div>
-    </main>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email address">
 
-    <footer>
-        <div class="footer">
-            <p>© Lisa Schumann 2019</p>
-        </div>
-    </footer>
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Your message" style="height:200px"></textarea>
+
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer">
+      <p>© Lisa Schumann 2019</p>
+    </div>
+  </footer>
 
 </body>
 
