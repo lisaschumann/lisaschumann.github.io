@@ -187,7 +187,11 @@ main {
   background-size: cover;
 }
 
-#wohlstands-trainer {}
+#wohlstands-trainer {
+    background-image: url(/resources/images/wohlstandstrainer.jpg);
+  background-position: right;
+  background-size: cover;
+}
 
 #loewenherz {
   background-image: url(/resources/images/loewenherz.jpg);
@@ -203,6 +207,18 @@ main {
 
 #mytimes {
   background-image: url(/resources/images/img-story-1.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#colmar {
+  background-image: url(/resources/images/Colmar.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+#osteo {
+  background-image: url(/resources/images/osteopathy.jpg);
   background-position: center;
   background-size: cover;
 }
