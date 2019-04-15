@@ -162,7 +162,8 @@ main {
   }
 
   .website {
-    width: 100%;
+    width: 100%;  
+    box-sizing: border-box;
     margin: 0;
     border: 5px solid white;
   }
@@ -180,7 +181,11 @@ main {
   background-size: cover;
 }
 
-#brydie {}
+#brydie {
+  background-image: url(/resources/images/Brydie.jpg);
+  background-position: right;
+  background-size: cover;
+}
 
 #wohlstands-trainer {}
 
@@ -231,24 +236,26 @@ main {
 
 .about {
   padding: 3rem 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 .about a {
   text-decoration: none;
+  display: flex;
+  justify-content: center;
 }
 
 .fact {
   background-color: black;
+  box-sizing: border-box;
   border: 5px solid paleturquoise;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 20rem;
-  width: 20rem;
+  width: 80%;
   margin: 1rem;
+  padding: 1rem;
+  line-height: 1.5;
 }
 
 .fact:hover {
@@ -257,7 +264,7 @@ main {
 
 .fact h1 {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: white;
   text-shadow:
     -1px -1px 0 #000,
@@ -267,7 +274,7 @@ main {
 }
 
 #from {
-  background-image: url(/resources/images/mark-basarab-157610-unsplash.jpg);
+  background-color: pink;
   background-position: center;
   background-size: cover;
 }
@@ -276,7 +283,6 @@ main {
   .about {
     padding: 0;
     flex-direction: column;
-    margin-bottom: 2rem;
   }
 
   .fact {
@@ -298,7 +304,7 @@ main {
   padding: 3rem;
 }
 
-.testimonials h1 {
+.move {
   text-align: center;
   font-size: 4rem;
   color: white;
@@ -313,17 +319,19 @@ main {
 .ratings {
   display: flex;
   justify-content: space-between;
+  align-content: center;
 }
 
 .rating {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+  width: 40%;
 }
 
 .rating img {
-  width: 30rem;
+  width: 50%;
 }
 
 .rating p {
@@ -335,6 +343,29 @@ main {
 
 .rating span {
   margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 780px){
+  .testimonials h1 {
+    font-size: 3rem;
+  }
+  
+  .ratings {
+    flex-flow: column wrap;
+  }
+  
+  .rating {
+    margin-bottom: 2rem;
+  }
+  
+  .rating img {
+    width: 70%;
+  }
+  
+  .rating p {
+    width: 90%;
+    font-size: 1.3rem;
+  }
 }
 
 /*Footer*/
@@ -358,4 +389,8 @@ footer i {
 
 footer a {
   color: white;
+}
+
+.example {
+  background-image: url(/images/elephant.png);
 }
