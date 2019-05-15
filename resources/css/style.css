@@ -122,13 +122,13 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 85%;
+  width: 89%;
   margin: 0 auto;
 }
 
 .portfolio a {
   text-decoration: none;
-  width: 30rem;
+  width: 28rem;
 }
 
 .website {
@@ -154,6 +154,20 @@ main {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+@media only screen and (max-width: 880px) {
+  .portfolio {
+  padding: 0;
+    width: 100%;
+  }
+  .portfolio a {
+    width: 100%;
+  }
+  
+  .website {
+    margin: 0;
+  }
 }
 
 /*Websites*/
@@ -234,29 +248,36 @@ main {
   color: midnightblue;
 }
 
+@media only screen and (max-width: 880px) {
+.btn-homepage {
+  margin: 3rem auto;
+}
+}
 
 /*About Page*/
 
 .about {
-  padding: 3rem 1rem;
+  background-color: midnightblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
 }
 
 .about a {
   text-decoration: none;
-  display: flex;
-  justify-content: center;
+}
+
+.about img {
+  width: 50rem;
 }
 
 .fact {
-  background-color: black;
   box-sizing: border-box;
-  border: 5px solid midnightblue;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 20rem;
-  width: 80%;
-  margin: 1rem;
+  width: 40rem;
   padding: 1rem;
   line-height: 1.5;
 }
@@ -272,7 +293,7 @@ main {
 }
 
 #from {
-  background-color: paleturquoise;
+
   background-position: center;
   background-size: cover;
 }
@@ -341,9 +362,18 @@ main {
 
 .rating span {
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 780px){
+  .move {
+    margin-bottom: 2.2rem;
+  }
+  
+  .testimonials {
+    padding: 3rem 3rem 0 3rem;
+  }
+  
   .testimonials h1 {
     font-size: 3rem;
   }
@@ -354,6 +384,7 @@ main {
   
   .rating {
     margin-bottom: 2rem;
+    width: 70%;
   }
   
   .rating img {
@@ -362,7 +393,7 @@ main {
   
   .rating p {
     width: 90%;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -380,6 +411,10 @@ footer {
   align-items: center;
 }
 
+.footer-about {
+    border-top: 0.1px solid white;
+}
+
 footer i {
   padding: 0.5rem;
   border: 1px solid white;
@@ -391,4 +426,8 @@ footer a {
 
 .example {
   background-image: url(/images/elephant.png);
+}
+#image-con img {
+  position: relative;
+  top: 0;
 }
