@@ -254,67 +254,6 @@ main {
 }
 }
 
-/*About Page*/
-
-.about {
-  background-color: midnightblue;
-  display: flex;
-  justify-content: space-between;
-  padding: 3rem;
-}
-
-.about a {
-  text-decoration: none;
-}
-
-.about img {
-  width: 50rem;
-}
-
-.fact {
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
-  width: 40rem;
-  padding: 1rem;
-  line-height: 1.5;
-}
-
-.fact:hover {
-  border: 5px solid pink;
-}
-
-.fact h1 {
-  text-align: center;
-  font-size: 1.6rem;
-  color: white;
-}
-
-#from {
-
-  background-position: center;
-  background-size: cover;
-}
-
-@media only screen and (max-width: 780px) {
-  .about {
-    padding: 0;
-    flex-direction: column;
-  }
-
-  .fact {
-    width: 100%;
-    margin: 0;
-    border: 5px solid white;
-  }
-
-  .fact h1 {
-    font-size: 1rem;
-  }
-}
-
 /*Rating*/
 
 .testimonials {
@@ -427,7 +366,68 @@ footer a {
 .example {
   background-image: url(/images/elephant.png);
 }
-#image-con img {
-  position: relative;
-  top: 0;
+
+/*About Page*/
+
+.about {
+  background-color: midnightblue;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+  height: 37rem;
+}
+
+.about a {
+  text-decoration: none;
+}
+
+#about-img {
+  width: 100%;
+  background-image: url(../images/2.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#about-img:hover{
+  background-image: url(../images/1.png);
+}
+
+.fact {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  width: 40rem;
+  padding: 1rem;
+  line-height: 1.5;
+}
+
+.fact h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: white;
+}
+
+#from {
+  background-position: center;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 780px) {
+  .about {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .fact {
+    width: 100%;
+    margin: 0;
+    border: 5px solid white;
+  }
+
+  .fact h1 {
+    font-size: 1rem;
+  }
 }
