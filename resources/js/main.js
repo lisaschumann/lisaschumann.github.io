@@ -69,15 +69,6 @@ var portfolioItems = [{
         title: 'Osteopathy',
         subtitle: 'Client base and booking.',
         paragraph: 'More info coming soon.'
-    },
-    {
-        url: 'https://lisaschumann.github.io/match_game/',
-        imageUrl: './resources/images/osteopathy.jpg',
-        client: 'Match Game',
-        imagePositon: 'center',
-        title: 'Match Game',
-        subtitle: 'A fun game.',
-        paragraph: 'More info coming soon.'
     }
 ]
 
@@ -99,8 +90,8 @@ function generatePorfolioCards() {
                     </div>
                 </a>`
     })
+    portfolioCardElements.push(`<a href="https://lisaschumann.github.io/match_game/" target="_blank"><div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front website" style="height: 28rem; background-color: rgb(32, 64, 86);"><h2>Match Game</h2></div><div class="flip-card-back"><h3>Match Game</h3><h4>A real fun game</h4><img src="./resources/images/white-line-small.png" style="width:3rem;"><p>This is a small game I build.</p></div></div></div></a>`)
 
-    portfolioCardElements.push('<a href="https://lisaschumann.github.io/match_game/" target="_blank"><div class="website" style="height: 28rem; background-color: rgb(32, 64, 86);"><h2>Match Game</h2></div></a>')
     return portfolioCardElements
 }
 

@@ -201,10 +201,10 @@ main {
 }
 
 .flip-card-back {
-  background-color: midnightblue;
+  background-color: rgb(32, 64, 86);
   color: white;
   transform: rotateY(180deg);
-  border: 5px solid pink;
+  border: 5px solid paleturquoise;
 }
 
 .flip-card-back h3 {
