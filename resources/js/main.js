@@ -1,135 +1,107 @@
-$(document).ready(function ($) {
-      $('.website').hover(
-        function () {
-          $('#from').attr('#from', '.example');
-        },
-        function () {
-          $('#from').remove();
-        }
-      );
-
-      var $game = $("#game");
-      var values = MatchGame.generateCardValues(); MatchGame.renderCards(values, $game);
-      });
-
-      
-
-
-var MatchGame = {};
-
-/*
-  Sets up a new game after HTML document has loaded.
-  Renders a 4x4 board of cards.
-*/
-
-$(document).ready(function () {
-  var $game = $("#game");
-  var values = MatchGame.generateCardValues();
-  MatchGame.renderCards(values, $game);
-});
-
-/*
-  Generates and returns an array of matching card values.
- */
-
-MatchGame.generateCardValues = function () {
-  var sequentialValues = [];
-
-  for (var value = 1; value <= 8; value++) {
-    sequentialValues.push(value);
-    sequentialValues.push(value);
-  }
-
-  var cardValues = [];
-  
-  while (sequentialValues.length > 0) {
-    var randomIndex = Math.floor(Math.random()*sequentialValues.length);
-    var randomValue = sequentialValues.splice(randomIndex, 1)[0];
-    cardValues.push(randomValue);
-  }
-
-  return cardValues;
-};
-
-/*
-  Converts card values to jQuery card objects and adds them to the supplied game
-  object.
-*/
-
-MatchGame.renderCards = function(cardValues, $game) {
-  var colors = [
-    'hsl(25, 85%, 65%)', 
-    'hsl(55, 85%, 65%)', 
-    'hsl(90, 85%, 65%)', 
-    'hsl(160, 85%, 65%)', 
-    'hsl(220, 85%, 65%)', 
-    'hsl(265, 85%, 65%)', 
-    'hsl(310, 85%, 65%)',
-    'hsl(360, 85%, 65%)'];
-
-  $game.empty();
-  $game.data('flippedCards', []);
-
-  for (var valueIndex = 0; valueIndex < cardValues.length; valueIndex++) {
-    var value = cardValues[valueIndex];
-    var color = colors[value - 1];
-    var data = {
-      value: value,
-      color: color,
-      isFlipped: false
-    };
-
-    var $cardElement = $('<div class="col-xs-3 card"></div>');
-    $cardElement.data(data); 
-
-    $game.append($cardElement);
-  }
-
-  $('.card').click(function() {
-    MatchGame.flipCard($(this), $('#game')); 
-  });
-};
-
-/*
-  Flips over a given card and checks to see if two cards are flipped over.
-  Updates styles on flipped cards depending whether they are a match or not.
- */
-
-MatchGame.flipCard = function($card, $game) {
-  if ($card.data('isFlipped')) {
-    return;
-  }
-   
-  $card.css('background-color', $card.data('color'))
-      .text($card.data('value'))
-      .data('isFlipped', true);
-
-  var flippedCards = $game.data('flippedCards');
-  flippedCards.push($card);
-
-  if (flippedCards.length === 2) {
-    if (flippedCards[0].data('value') === flippedCards[1].data('value')) {
-      var matchCss = {
-        backgroundColor: 'rgb(153, 153, 153)',
-        color: 'rgb(204, 204, 204)'
-      };
-      flippedCards[0].css(matchCss);
-      flippedCards[1].css(matchCss);
-    } else {
-      var card1 = flippedCards[0];
-      var card2 = flippedCards[1];
-      window.setTimeout(function() {
-        card1.css('background-color', 'rgb(32, 64, 86')
-            .text('')
-            .data('isFlipped', false);
-        card2.css('background-color', 'rgb(32, 64, 86')
-            .text('')
-            .data('isFlipped', false);
-      }, 350);
-
+var portfolioItems = [{
+        url: 'https://www.anderl-heckmair.com',
+        imageUrl: './resources/images/mark-basarab-157610-unsplash.jpg',
+        client: 'Anderl Heckmair',
+        imagePositon: 'center',
+        title: 'Anderl Heckmair Mode',
+        subtitle: 'Custom website and shop integration',
+        paragraph: 'Beautiful bavarian outdoor fashion.'
+    },
+    {
+        url: 'https://www.brydiemusic.com',
+        imageUrl: './resources/images/Brydie.jpg',
+        client: 'Brydie Music',
+        imagePositon: 'right',
+        title: 'Brydie Music',
+        subtitle: 'DJ & Producer website',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'http://der-wohlstands-trainer.de',
+        imageUrl: './resources/images/wohlstandstrainer.jpg',
+        client: 'Der Wohlstands Trainer',
+        imagePositon: 'right',
+        title: 'Der Wohlstands Trainer',
+        subtitle: 'Fully customized coaching website',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'https://www.löwenherz.tv',
+        imageUrl: './resources/images/loewenherz.jpg',
+        client: 'Löwenherz TV',
+        imagePositon: 'center',
+        title: 'Löwenherz TV',
+        subtitle: 'Custom website for a German coach',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'https://lisaschumann.github.io/colmar_academy/',
+        imageUrl: './resources/images/Colmar.jpg',
+        client: 'Colmar Academy',
+        imagePositon: 'center',
+        title: 'Colmar Academy',
+        subtitle: 'Educational project page',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'https://lisaschumann.github.io/u4_tea_cozy/',
+        imageUrl: './resources/images/teacozy.jpg',
+        client: 'Tea Cozy',
+        imagePositon: 'center',
+        title: 'Tea Cozy',
+        subtitle: 'Commercial example',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'https://lisaschumann.github.io/u4_my_times/',
+        imageUrl: './resources/images/img-story-1.png',
+        client: 'My Times',
+        imagePositon: 'center',
+        title: 'My Times',
+        subtitle: 'Example of a news page',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'https://www.ann-christin-osteopathy.com/',
+        imageUrl: './resources/images/osteopathy.jpg',
+        client: 'Osteopathy',
+        imagePositon: 'center',
+        title: 'Osteopathy',
+        subtitle: 'Client base and booking.',
+        paragraph: 'More info coming soon.'
+    },
+    {
+        url: 'https://lisaschumann.github.io/match_game/',
+        imageUrl: './resources/images/osteopathy.jpg',
+        client: 'Match Game',
+        imagePositon: 'center',
+        title: 'Match Game',
+        subtitle: 'A fun game.',
+        paragraph: 'More info coming soon.'
     }
-    $game.data('flippedCards', []);
-  }
+]
 
-  
-};
+function generatePorfolioCards() {
+    var portfolioCardElements = portfolioItems.map(function (item) {
+        return `<a href="${item.url}" target="_blank">
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front website" style="background-image: url('${item.imageUrl}'); background-position: ${item.imagePositon};">
+                                    <h2>${item.client}</h2>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>${item.title}</h3>
+                                <h4>${item.subtitle}</h4>
+                                <img src="./resources/images/white-line-small.png" style="width:3rem;">
+                                <p>${item.paragraph}</p>
+                             </div>
+                        </div>
+                    </div>
+                </a>`
+    })
+
+    portfolioCardElements.push('<a href="https://lisaschumann.github.io/match_game/" target="_blank"><div class="website" style="height: 28rem; background-color: rgb(32, 64, 86);"><h2>Match Game</h2></div></a>')
+    return portfolioCardElements
+}
+
+$('.portfolio').html(generatePorfolioCards())

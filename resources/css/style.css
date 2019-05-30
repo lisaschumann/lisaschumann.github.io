@@ -8,13 +8,20 @@ a {
     color: dimgrey;
 }
 
+.wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+
 
 /* Header */
 
 header {
     background-color: pink;
-    height: 2rem;
-    padding: 1rem 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     position: fixed;
     z-index: 999;
     width: 100%;
@@ -23,6 +30,7 @@ header {
     align-items: center;
     border-bottom: 0.1px solid midnightblue;
     text-transform: uppercase;
+    box-sizing: border-box;
 }
 
 header a {
@@ -33,7 +41,6 @@ header a {
 .title {
     display: flex;
     align-items: center;
-    margin-left: 3rem;
 }
 
 .title img {
@@ -45,10 +52,6 @@ header a {
     color: white;
     font-size: 2rem;
     margin-left: 1rem;
-}
-
-header nav {
-    margin-right: 3rem;
 }
 
 header ul li {
@@ -83,7 +86,8 @@ main {
     border-bottom: 0.1px solid midnightblue;
     text-align: center;
     color: white;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .banner img {
@@ -135,20 +139,18 @@ main {
 }
 
 .website {
-    background-color: black;
     border: 5px solid paleturquoise;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
-    height: 28rem;
+    background-size: cover;
 }
 
 .website:hover {
     border: 5px solid pink;
 }
 
-.website h1 {
+.website h2 {
     text-align: center;
     font-size: 190%;
     color: white;
@@ -168,61 +170,59 @@ main {
     }
 }
 
+/*Flip Card*/
 
-/*Websites*/
-
-#anderl-heckmair {
-    background-image: url(/resources/images/mark-basarab-157610-unsplash.jpg);
-    background-position: center;
-    background-size: cover;
+.flip-card {
+  background-color: transparent;
+  width: 28rem;
+  height: 28rem;
+  perspective: 1000px;
 }
 
-#brydie {
-    background-image: url(/resources/images/Brydie.jpg);
-    background-position: right;
-    background-size: cover;
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-#wohlstands-trainer {
-    background-image: url(/resources/images/wohlstandstrainer.jpg);
-    background-position: right;
-    background-size: cover;
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
 }
 
-#loewenherz {
-    background-image: url(/resources/images/loewenherz.jpg);
-    background-position: center;
-    background-size: cover;
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }
 
-#teacozy {
-    background-image: url(/resources/images/teacozy.jpg);
-    background-position: center;
-    background-size: cover;
+.flip-card-back {
+  background-color: midnightblue;
+  color: white;
+  transform: rotateY(180deg);
+  border: 5px solid pink;
 }
 
-#mytimes {
-    background-image: url(/resources/images/img-story-1.png);
-    background-position: center;
-    background-size: cover;
+.flip-card-back h3 {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-#colmar {
-    background-image: url(/resources/images/Colmar.jpg);
-    background-position: center;
-    background-size: cover;
+.flip-card-back h4 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-#osteo {
-    background-image: url(/resources/images/osteopathy.jpg);
-    background-position: center;
-    background-size: cover;
+.flip-card-back p {
+    margin-top: 2rem;
 }
-
-#match {
-    background-color: rgb(32, 64, 86);
-}
-
 
 /*Info*/
 
@@ -366,8 +366,8 @@ footer a {
     background-color: midnightblue;
     display: flex;
     justify-content: space-between;
-    padding: 3rem;
-    height: 37rem;
+    padding: 3rem 3rem 0 3rem;
+    height: 48rem;
 }
 
 #about-img {
@@ -403,11 +403,15 @@ footer a {
 }
 
 .fact h2 {
-      padding: 0.6rem;
+    padding: 0.6rem;
     color: rainbow;
     background-image: linear-gradient(to left, violet, violet, indigo, blue, green, violet);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.fact ul {
+    margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 920px) {
@@ -429,5 +433,231 @@ footer a {
     }
     .fact p {
         text-align: center;
+    }
+}
+
+
+/*About Button*/
+
+.touch-box {
+    position: absolute;
+    width: 100%;
+    bottom: 2rem;
+}
+
+.touch-box a {
+    text-decoration: none;
+    color: white;
+}
+
+.about-btn {
+    background-color: paleturquoise;
+    border: 7px solid white;
+    transition: all 0.2s ease-out;
+    text-transform: uppercase;
+    height: 12rem;
+    width: 12rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    font-size: 1.4rem;
+}
+
+.about-btn:hover {
+    color: midnightblue;
+}
+
+@media only screen and (max-width: 880px) {
+    .about-btn {
+        margin: 3rem auto;
+    }
+}
+
+
+/*Blog*/
+
+
+/*Banner Blog*/
+
+.banner-blog {
+    background-color: paleturquoise;
+    border-bottom: 0.1px solid midnightblue;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+.banner-blog div {
+    background-image: url("../images/marvin-meyer-571072-unsplash.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: 1px solid white;
+    width: 100%;
+    height: 45rem;
+}
+
+.banner-blog h1 {
+    font-family: Arial;
+    font-size: 7rem;
+    font-weight: bold;
+    color: darkblue;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+@media only screen and (max-width: 1299px) {
+    .banner-blog h1 {
+        font-size: 5.3rem;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .banner-blog h1 {
+        font-size: 3.3rem;
+    }
+    .banner-blog div {
+        height: 25rem;
+    }
+}
+
+
+/*Blog Content*/
+
+.blog {
+    padding: 3rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 89%;
+    margin: 0 auto;
+}
+
+.blog a {
+    text-decoration: none;
+    width: 28rem;
+}
+
+.blog-post-preview {
+    background-color: black;
+    border: 5px solid pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    height: 28rem;
+    color: white;
+    background-size: cover;
+}
+
+.blog-post-preview:hover {
+    border: 5px solid paleturquoise;
+}
+
+.blog-post-preview h1 {
+    text-align: center;
+    font-size: 190%;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    position: relative;
+}
+
+.blog-post-preview p {
+    font-size: 1.1rem;
+    margin-top: 0.7rem;
+    position: relative;
+}
+
+@media only screen and (max-width: 880px) {
+    .blog {
+        padding: 0;
+        width: 100%;
+    }
+    .blog a {
+        width: 100%;
+    }
+    .blog-post-preview {
+        margin: 0;
+    }
+}
+
+
+/*Overlay*/
+
+.overlay {
+  position: relative;
+}
+
+.overlay:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.4;
+    content: '';
+    color: white;
+}
+
+.overlay-green {
+  position: relative;
+}
+
+.overlay-green:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #292F25;
+    opacity: 0.4;
+    content: '';
+    color: white;
+}
+
+/*Blog Post*/
+
+.blog-post {
+    padding: 3rem;
+    text-align: center;
+    color: black;
+}
+
+.blog-post h1 {
+    text-align: left;
+    font-size: 2.7rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.blog-post h2 {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.blog-post h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.blog-post p {
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.blog-post img {
+    width: 80%;
+}
+
+@media only screen and (max-width: 880px) {
+    .blog-post {
+        padding: 3rem 3rem 0 3rem;
     }
 }
