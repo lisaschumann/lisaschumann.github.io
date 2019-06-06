@@ -8,13 +8,41 @@
     <link rel="shortcut icon" type="image/png" href="/resources/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="./resources/css/reset.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
     <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
     <link href="./resources/css/trip.css" type="text/css" rel="stylesheet">
 </head>
 
 <body id="top-home">
+    <!-- Password-->
+    <SCRIPT>
+        function passWord() {
+            var testV = 1;
+            var pass1 = prompt('Please Enter Your Password', ' ');
+            while (testV < 3) {
+                if (!pass1)
+                    history.go(-1);
+                if (pass1.toLowerCase() == "cornwall") {
+                    alert('You Got it Right!');
+                    window.open('https://lisaschumann.github.io/trip.html');
+                    break;
+                }
+                testV += 1;
+                var pass1 =
+                    prompt('Access Denied - Password Incorrect, Please Try Again.', 'Password');
+            }
+            if (pass1.toLowerCase() != "password" & testV == 3)
+                history.go(-1);
+            return " ";
+        }
+    </SCRIPT>
+    <CENTER>
+        <FORM>
+            <input type="button" value="Enter Protected Area" onClick="passWord()">
+        </FORM>
+    </CENTER>
+
+
     <!-- Header-->
     <header class="wrapper" style="border-bottom: 1px solid white;">
         <div class="title">
@@ -33,31 +61,30 @@
     <main>
         <!-- Banner-->
         <div class="banner wrapper" style="background-color: #292F25; border-bottom: 5px solid #FF3723;">
-            <img src="./resources/images/friends.jpeg" alt="Lisa Schumann"
-                width="300">
+            <img src="./resources/images/friends.jpeg" alt="Lisa Schumann" width="300">
             <p>Friends.</p>
             <h1 style="color: white;">OUR NEXT TRIP</h1>
         </div>
 
         <!-- Trip-->
         <div class="trip overlay-green">
-        <section class="container-trip">
-            <div class="heading">
-                <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
-                <h1 class="heading__title">Where we want to go</h1>
-            </div>
-            <form class="form">
-                <div>
-                    <label class="form__label" for="todo">~ Adventure travel plans ~</label>
-                    <input class="form__input" type="text" id="todo" name="to-do" size="30" required>
-                    <button class="button"><span>Submit</span></button>
+            <section class="container-trip">
+                <div class="heading">
+                    <img class="heading__img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/laptop.svg">
+                    <h1 class="heading__title">Where we want to go</h1>
                 </div>
-            </form>
-            <div>
-                <ul class="toDoList">
-                </ul>
-            </div>
-        </section>
+                <form class="form">
+                    <div>
+                        <label class="form__label" for="todo">~ Adventure travel plans ~</label>
+                        <input class="form__input" type="text" id="todo" name="to-do" size="30" required>
+                        <button class="button"><span>Submit</span></button>
+                    </div>
+                </form>
+                <div>
+                    <ul class="toDoList">
+                    </ul>
+                </div>
+            </section>
         </div>
 
     </main>
