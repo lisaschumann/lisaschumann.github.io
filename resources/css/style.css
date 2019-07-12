@@ -65,6 +65,7 @@ header ul li {
     header {
         justify-content: space-between;
     }
+
     header h1 {
         display: none;
     }
@@ -152,7 +153,7 @@ main {
 
 .website h2 {
     text-align: center;
-    font-size: 190%;
+    font-size: 2rem;
     color: white;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
@@ -162,9 +163,11 @@ main {
         padding: 0;
         width: 100%;
     }
+
     .portfolio a {
         width: 100%;
     }
+
     .website {
         margin: 0;
     }
@@ -173,38 +176,39 @@ main {
 /*Flip Card*/
 
 .flip-card {
-  background-color: transparent;
-  width: 28rem;
-  height: 28rem;
-  perspective: 1000px;
+    background-color: transparent;
+    width: 28rem;
+    height: 28rem;
+    perspective: 1000px;
+    perspective-origin: center;
 }
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
 }
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+    transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
 }
 
 .flip-card-back {
-  background-color: rgb(32, 64, 86);
-  color: white;
-  transform: rotateY(180deg);
-  border: 5px solid paleturquoise;
+    background-color: rgb(32, 64, 86);
+    color: white;
+    transform: rotateY(180deg);
+    border: 5px solid paleturquoise;
 }
 
 .flip-card-back h3 {
@@ -305,22 +309,28 @@ main {
     .move {
         margin-bottom: 2.2rem;
     }
+
     .testimonials {
         padding: 3rem 3rem 0 3rem;
     }
+
     .testimonials h1 {
         font-size: 3rem;
     }
+
     .ratings {
         flex-flow: column wrap;
     }
+
     .rating {
         margin-bottom: 2rem;
         width: 70%;
     }
+
     .rating img {
         width: 70%;
     }
+
     .rating p {
         width: 90%;
         font-size: 1.1rem;
@@ -420,10 +430,12 @@ footer a {
         flex-direction: column;
         height: 100%;
     }
+
     #about-img {
         margin: 1rem 0;
         height: 25rem;
     }
+
     .fact {
         width: 100%;
         margin: 0;
@@ -431,6 +443,7 @@ footer a {
         padding: 3rem;
         align-items: center;
     }
+
     .fact p {
         text-align: center;
     }
@@ -517,6 +530,7 @@ footer a {
     .banner-blog h1 {
         font-size: 3.3rem;
     }
+
     .banner-blog div {
         height: 25rem;
     }
@@ -574,9 +588,11 @@ footer a {
         padding: 0;
         width: 100%;
     }
+
     .blog a {
         width: 100%;
     }
+
     .blog-post-preview {
         margin: 0;
     }
@@ -586,7 +602,7 @@ footer a {
 /*Overlay*/
 
 .overlay {
-  position: relative;
+    position: relative;
 }
 
 .overlay:before {
@@ -602,7 +618,7 @@ footer a {
 }
 
 .overlay-green {
-  position: relative;
+    position: relative;
 }
 
 .overlay-green:before {
@@ -660,4 +676,26 @@ footer a {
     .blog-post {
         padding: 3rem 3rem 0 3rem;
     }
+}
+
+/* Trip */
+
+.form .button {
+    font-size: 1.2rem;
+}
+
+.toDoList li {
+    font-size: 2rem;
+}
+
+/*TEST*/
+.name-list {
+    text-align: left;
+    padding-left: 46rem;
+    margin: 2rem auto;
+}
+
+.name-list li {
+    color: white;
+    font-size: 2.5rem;
 }
