@@ -452,30 +452,20 @@ footer a {
 
 /*About Button*/
 
-.touch-box {
-    position: absolute;
-    width: 100%;
-    bottom: 2rem;
-}
-
-.touch-box a {
-    text-decoration: none;
-    color: white;
-}
-
 .about-btn {
     background-color: paleturquoise;
-    border: 7px solid white;
-    transition: all 0.2s ease-out;
+    border: 1px solid white;
     text-transform: uppercase;
-    height: 12rem;
-    width: 12rem;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
     font-size: 1.4rem;
+    margin: 1.7rem 0 1rem 0;
+    padding: 0.6rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.about-btn a{
+    text-decoration: none;
+    color: white;
 }
 
 .about-btn:hover {
@@ -636,7 +626,7 @@ footer a {
 /*Blog Post*/
 
 .blog-post {
-    padding: 3rem;
+    padding: 5rem;
     text-align: center;
     color: black;
 }
@@ -648,22 +638,15 @@ footer a {
     margin-bottom: 1rem;
 }
 
-.blog-post h2 {
+.blog-post h2, .blog-post h3 {
     text-align: left;
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-.blog-post h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-
 .blog-post p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     text-align: left;
     margin: 2rem 0;
 }
@@ -698,4 +681,18 @@ footer a {
 .name-list li {
     color: white;
     font-size: 2.5rem;
+}
+.past-blog {
+    padding: 0 5rem 5rem 5rem;
+    color: black;
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+.past-blog a {
+   text-decoration: none;
+}
+
+.past-blog a:hover {
+  color: pink;
 }
