@@ -468,7 +468,7 @@ footer a {
     color: white;
 }
 
-.about-btn:hover {
+.about-btn a:hover {
     color: midnightblue;
 }
 
