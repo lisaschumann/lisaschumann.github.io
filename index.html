@@ -7,23 +7,108 @@
     <meta charset="utf-8">
     <link rel="shortcut icon" type="image/png" href="/resources/images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/gkx0ahk.css">
     <link href="./resources/css/reset.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
     <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
+    <script>
+        // Navigation Anchor with correct margin to display sections
+        (function (document, history, location) {
+            var HISTORY_SUPPORT = !!(history && history.pushState);
+
+            var anchorScrolls = {
+                //ANCHOR_REGEX: /^#[^ ]+$/
+                ANCHOR_REGEX: /^[\/a-z0-9-]*#[^\s]+$/,
+                OFFSET_HEIGHT_PX: 58,
+
+                /**
+                 * Establish events, and fix initial scroll position if a hash is provided.
+                 */
+                init: function () {
+                    this.scrollToCurrent();
+                    window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+                    document.body.addEventListener('click', this.delegateAnchors.bind(this));
+                },
+
+                /**
+                 * Return the offset amount to deduct from the normal scroll position.
+                 * Modify as appropriate to allow for dynamic calculations
+                 */
+                getFixedOffset: function () {
+                    return this.OFFSET_HEIGHT_PX;
+                },
+
+                /**
+                 * If the provided href is an anchor which resolves to an element on the
+                 * page, scroll to it.
+                 * @param  {String} href
+                 * @return {Boolean} - Was the href an anchor.
+                 */
+                scrollIfAnchor: function (href, pushToHistory) {
+                    var match, rect, anchorOffset;
+
+                    if (!this.ANCHOR_REGEX.test(href)) {
+                        return false;
+                    }
+
+                    match = document.getElementById(href.slice(1));
+
+                    if (match) {
+                        rect = match.getBoundingClientRect();
+                        anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+                        window.scrollTo(window.pageXOffset, anchorOffset);
+
+                        // Add the state to history as-per normal anchor links
+                        if (HISTORY_SUPPORT && pushToHistory) {
+                            history.pushState({}, document.title, location.pathname + href);
+                        }
+                    }
+
+                    return !!match;
+                },
+
+                /**
+                 * Attempt to scroll to the current location's hash.
+                 */
+                scrollToCurrent: function () {
+                    this.scrollIfAnchor(window.location.hash);
+                },
+
+                /**
+                 * If the click event's target was an anchor, fix the scroll position.
+                 */
+                delegateAnchors: function (e) {
+                    var elem = e.target;
+
+                    if (
+                        elem.nodeName === 'A' &&
+                        this.scrollIfAnchor(elem.getAttribute('href'), true)
+                    ) {
+                        e.preventDefault();
+                    }
+                }
+            };
+
+            window.addEventListener(
+                'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+            );
+        })(window.document, window.history, window.location);
+    </script>
 </head>
 
-<body id="top-home">
+<body>
     <!-- Header-->
     <header class="wrapper">
         <div class="title">
-            <a href="index.html"><img src="/resources/images/logo.png" alt="Logo"></a>
-            <h1><a href="index.html">Lisa Schumann</a></h1>
+            <a href="#top"><img src="/resources/images/logo.png" alt="Logo"></a>
+            <h1><a href="#top">Lisa Schumann</a></h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#top">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="blog/blog.html">Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -31,13 +116,44 @@
     <main>
         <!-- Banner-->
         <div class="banner wrapper">
-            <img src="./resources/images/kaja%20paradiek%20illustration%20lisa%20schumann.gif" alt="Lisa Schumann" width="300">
-            <p>Illustration by <a href="http://www.hellokaja.com/" target="_blank">Kaja Paradiek.</a></p>
-            <h1>WEB DESIGN Portfolio</h1>
+            <div id="intro">
+                <h3>Web Designer & Front End Developer</h3>
+                <h2>From personal brands to marketing agencies,<br>I can't wait to create your beautiful website.</h2>
+            </div>
+            <div class="banner-img">
+                <img src="./resources/images/kaja%20paradiek%20illustration%20lisa%20schumann.gif" alt="Lisa Schumann"
+                    width="300" id="trigger">
+                <p>Illustration by <a href="http://www.hellokaja.com/" target="_blank">Kaja Paradiek.</a></p>
+            </div>
         </div>
 
+        <!-- About-->
+        <section id="about">
+            <div>
+                <img src="/resources/images/profilepicture.jpg" alt="Profile Image">
+            </div>
+            <div class="about-content">
+                <h3>Lisa Schumann</h3>
+                <span style="display: block;">I am a junior front end developer with significant experience in design
+                    and marketing. I love working with people and within a strong team. <br>With an undeniable work
+                    ethic, excellent time management and a hunger to excel, I am the ideal candidate for your
+                    team.</span>
+            </div>
+        </section>
+
+        <!-- Skills-->
+        <section id="skills">
+            <h3>Skills</h3>
+            <i class="fas fa-code" style="font-size: 1.5rem;"></i>
+            <div class="languages">
+                <div class="language"> <i class="fab fa-html5"></i><h4>HTML</h4></div>
+                <div class="language"> <i class="fab fa-css3"></i><h4>CSS</h4></div>
+                <div class="language"> <i class="fab fa-js"></i><h4>JAVASCRIPT</h4></div>
+            </div>
+        </section>
+
         <!-- Portfolio-->
-        <div class="portfolio">
+        <div id="projects" class="portfolio">
         </div>
 
         <!-- Contact-->
@@ -52,22 +168,39 @@
             <h1 class="move">TESTIMONIALS</h1>
             <div class="ratings">
                 <div class="rating"><img src="./resources/images/rating.png" alt="5 Star Rating">
-                    <p>Brilliant! I would absolutely recommend her to my friends.</p><span> Ann-Christin Wicke / Osteopath </span>
+                    <p>Brilliant! I would absolutely recommend her to my friends.</p><span> Ann-Christin Wicke /
+                        Osteopath </span>
                 </div>
                 <div class="rating"><img src="./resources/images/rating.png" alt="5 Star Rating">
-                    <p>I was very satisfied with the service. 100% I can recommend the work, it was a collaboration to my complete satisfaction.</p><span> Rainer Rätzer / Der Wohlstands Trainer</span>
+                    <p>I was very satisfied with the service. 100% I can recommend the work, it was a collaboration to
+                        my complete satisfaction.</p><span> Rainer Rätzer / Der Wohlstands Trainer</span>
                 </div>
                 <div class="rating"><img src="./resources/images/rating.png" alt="5 Star Rating">
-                    <p>Incredibly creative execution and wonderful to work with. I am so happy with my website!</p><span> Ulli / Löwenherz TV </span>
+                    <p>Incredibly creative execution and wonderful to work with. I am so happy with my website!</p>
+                    <span> Ulli / Löwenherz TV </span>
                 </div>
             </div>
         </div>
     </main>
 
+    <a href="tel:+447449801877">
+        <div class="popup-call">
+            <div><span>Get in touch today:</span>
+                <br><span>+44 7449 801877</span></div>
+        </div>
+    </a>
+
+    <!-- Floating Top-Of-Page Button -->
+    <a class="top-link hide" href="" id="js-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+            <path d="M12 6H0l6-6z" /></svg>
+        <span class="screen-reader-text">Back to top</span>
+    </a>
+
     <!-- Footer-->
     <footer>
         <p>© Lisa Schumann 2019</p>
-        <a href="#top-home">
+        <a style="display: none;" href="#top">
             <i class="fa fa-chevron-up"></i></a>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

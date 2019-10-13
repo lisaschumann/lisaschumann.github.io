@@ -37,8 +37,5 @@ let listArray = [];
     console.log(listArray)
   }
 
-  console.log('Lisa');
-  console.log(input);
-
 
 

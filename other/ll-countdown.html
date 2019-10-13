@@ -1,0 +1,233 @@
+ <!DOCTYPE html>
+ <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+ <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+ <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+ <!--[if gt IE 8]><!-->
+ <html class="no-js">
+ <!--<![endif]-->
+
+ <head>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <title>LoschelderLeisenberg Countdown</title>
+     <meta name="description" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+     <link href="../resources/css/reset.css" type="text/css" rel="stylesheet">
+     <link href="../resources/css/style.css" type="text/css" rel="stylesheet">
+     <style>
+         .container {
+             color: black;
+             text-align: center;
+             padding: 5rem;
+         }
+
+         .container h3 {
+             font-weight: bold;
+             font-size: 2rem;
+             margin-bottom: 3rem;
+         }
+
+         .container ul {
+             margin-bottom: 5px;
+         }
+
+         .container ul:last-child {
+             margin: 100px 0;
+         }
+
+         .container li {
+             display: inline-block;
+             font-size: 1.5em;
+             font-weight: bold;
+             list-style-type: none;
+             padding: 2rem 3rem 3rem 3rem;
+             width: 25rem;
+             text-transform: uppercase;
+             background-color: #B8BE36;
+         }
+
+         .container li span {
+             display: block;
+             font-size: 5rem;
+         }
+
+         .fa,
+         .fas,
+         .far {
+             font-size: 50px;
+         }
+
+         .container span {
+             color: white;
+             font-weight: bold;
+         }
+     </style>
+ </head>
+
+ <body>
+     <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+     <header class="wrapper" style="border-bottom: 1px solid white;">
+         <div class="title">
+             <a href="index.html"><img src="../resources/images/logo.png" alt="Logo"></a>
+             <h1><a href="../index.html">Lisa Schumann</a></h1>
+         </div>
+         <nav>
+             <ul>
+                 <li><a href="../index.html">Home</a></li>
+                 <li><a href="../index.html#about">About</a></li>
+                 <li><a href="../index.html#projects">Projects</a></li>
+                 <li><a href="../blog/blog.html">Blog</a></li>
+             </ul>
+         </nav>
+     </header>
+     <main>
+         <div class="client">
+
+         </div>
+         <div class="container">
+             <h3>Every 5 seconds 5 espressos are added.</h3>
+             <ul>
+                 <li><i class="fas fa-clock"></i></i><span id="seconds"></span>Seconds</li>
+             </ul>
+             <ul>
+                 <li><i class="fa fa-coffee"></i><span id="espresso"></span>Espresso</li>
+             </ul>
+             <ul>
+                 <li><i class="fas fa-calendar"></i><span id="count-up"></span>Count Up</li>
+             </ul>
+         </div>
+     </main>
+
+     <!-- Floating Top-Of-Page Button -->
+     <a class="top-link hide" href="" id="js-top">
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+             <path d="M12 6H0l6-6z" /></svg>
+         <span class="screen-reader-text">Back to top</span>
+     </a>
+
+     <!-- Footer-->
+     <footer>
+         <p>© Lisa Schumann 2019</p>
+         <a style="display: none;" href="#top">
+             <i class="fa fa-chevron-up"></i></a>
+     </footer>
+
+     <!--Scripts-->
+     <script>
+         let espressos = getInitialCount();
+         saveCountToHTML(espressos);
+
+
+         setInterval(function () {
+             espressos = getUpdatedCount(espressos)
+             saveCountToHTML(espressos)
+             localStorage.setItem('espressos', espressos);
+         }, 5000);
+
+         /*funtion getInitialCount() {
+             let espressos;
+             if (localStorage.getItem('espressos')) {
+             espressos = parseInt(localStorage.getItem('espressos'));
+         } else {
+             espressos = 100;
+         } return espressos
+         }*/
+
+         /*
+                 funtion getInitialCount() {
+                     if (localStorage.getItem('espressos')) {
+                     return parseInt(localStorage.getItem('espressos'));
+                 } else {
+                     return 100;
+                 }
+                 }
+         */
+
+         function getInitialCount() {
+             return localStorage.getItem('espressos') ? parseInt(localStorage.getItem('espressos')) : 100;
+         }
+
+         function getUpdatedCount(count) {
+             if (count < 1000) {
+                 return count += 5;
+             } else {
+                 return 100;
+             }
+
+         };
+
+         function saveCountToHTML(count, elementID = 'espresso') {
+             document.getElementById(elementID).innerText = count;
+         };
+
+         const second = 1000,
+             minute = second * 60,
+             hour = minute * 60;
+         /*
+                 let espresso = 0;
+                 document.getElementById('espresso').innerText = espresso;
+
+                 const e = setInterval(function () {
+                     document.getElementById('espresso').innerText = espresso += 5;
+                 }, 1000);
+         */
+         let secondCount = 0;
+         document.getElementById('seconds').innerText = secondCount;
+
+         /* function animateValue(id, start, end, duration) {
+              var range = end - start;
+              var current = start;
+              var increment = end > start ? 1 : -1;
+              var stepTime = Math.abs(Math.floor(duration / range));
+              var obj = document.getElementById(id);
+              var timer = setInterval(function () {
+                  current += increment;
+                  obj.innerHTML = current;
+                  if (current == end) {
+                      current = start;
+                  }
+              }, 1000);
+          }*/
+
+         function countUpByOne(id, start, end) {
+             var current = start;
+             var element = document.getElementById(id);
+             setInterval(function () {
+                 // current += 1;
+                 current++;
+                 element.innerHTML = current;
+                 if (current == end) {
+                     current = start;
+                 }
+             }, 1000);
+         }
+
+         countUpByOne("seconds", 0, 5);
+
+         function animateValue(id, start, end, duration) {
+             var range = end - start;
+             var current = start;
+             var increment = end > start ? 1 : -1;
+             var stepTime = Math.abs(Math.floor(duration / range));
+             var obj = document.getElementById(id);
+             var timer = setInterval(function () {
+                 current += increment;
+                 obj.innerHTML = current;
+                 if (current == end) {
+                     // Clearing Interval so it does not keep running
+                     clearInterval(timer);
+                 }
+             }, stepTime);
+         }
+
+         animateValue("count-up", 0, 100, 500);
+     </script>
+
+ </body>
+
+ </html>
