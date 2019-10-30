@@ -6,10 +6,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <link rel="shortcut icon" type="image/png" href="../resources/images/favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Roboto:400,700|Lato:400&display=swap" rel="stylesheet">
   <link href="../resources/css/reset.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
   <link href="../resources/css/style.css" type="text/css" rel="stylesheet">
+  <script>
+    // Navigation Anchor with correct margin to display sections
+    (function (document, history, location) {
+      var HISTORY_SUPPORT = !!(history && history.pushState);
+
+      var anchorScrolls = {
+        //ANCHOR_REGEX: /^#[^ ]+$/
+        ANCHOR_REGEX: /^[\/a-z0-9-.]*#[^\s]+$/,
+        OFFSET_HEIGHT_PX: 58,
+
+        /**
+         * Establish events, and fix initial scroll position if a hash is provided.
+         */
+        init: function () {
+          this.scrollToCurrent();
+          window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
+          document.body.addEventListener('click', this.delegateAnchors.bind(this));
+        },
+
+        /**
+         * Return the offset amount to deduct from the normal scroll position.
+         * Modify as appropriate to allow for dynamic calculations
+         */
+        getFixedOffset: function () {
+          return this.OFFSET_HEIGHT_PX;
+        },
+
+        /**
+         * If the provided href is an anchor which resolves to an element on the
+         * page, scroll to it.
+         * @param  {String} href
+         * @return {Boolean} - Was the href an anchor.
+         */
+        scrollIfAnchor: function (href, pushToHistory) {
+          var match, rect, anchorOffset;
+
+          if (!this.ANCHOR_REGEX.test(href)) {
+            return false;
+          }
+
+          match = document.getElementById(href.slice(1));
+
+          if (match) {
+            rect = match.getBoundingClientRect();
+            anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
+            window.scrollTo(window.pageXOffset, anchorOffset);
+
+            // Add the state to history as-per normal anchor links
+            if (HISTORY_SUPPORT && pushToHistory) {
+              history.pushState({}, document.title, location.pathname + href);
+            }
+          }
+
+          return !!match;
+        },
+
+        /**
+         * Attempt to scroll to the current location's hash.
+         */
+        scrollToCurrent: function () {
+          this.scrollIfAnchor(window.location.hash);
+        },
+
+        /**
+         * If the click event's target was an anchor, fix the scroll position.
+         */
+        delegateAnchors: function (e) {
+          var elem = e.target;
+
+          if (
+            elem.nodeName === 'A' &&
+            this.scrollIfAnchor(elem.getAttribute('href'), true)
+          ) {
+            e.preventDefault();
+          }
+        }
+      };
+
+      window.addEventListener(
+        'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
+      );
+    })(window.document, window.history, window.location);
+  </script>
 </head>
 
 <body id="top-home">
@@ -31,40 +114,70 @@
 
   <main>
     <!-- Banner-->
-    <div class="banner">
-      <h2 style="color: white; font-style: normal; font-weight: bold; font-size: 10rem;">BLOG</h2>
+    <div class="banner-subpages">
+      <h2>BLOG</h2>
     </div>
 
     <!-- Blog Overview-->
     <div class="blog">
-      <a href="blog-post-19-05-29.html">
-        <div class="blog-post-preview"
-          style="background-image: url(../resources/images/marvin-meyer-571072-unsplash-1000.jpg);">
-          <h1>Navigation Alignment</h1>
-          <p>29th May 2019</p>
-        </div>
-      </a>
-      <a href="#">
-        <div class="blog-post-preview"
-          style="background-image: url(../resources/images/marvin-meyer-571072-unsplash-1000.jpg); background-position: right;">
-          <h1>Javascript - Append item</h1>
-          <p>5th June 2019</p>
-        </div>
-      </a>
-      <a href="#">
-        <div class="blog-post-preview overlay"
-          style="background-image: url(../resources/images/marvin-meyer-571072-unsplash-1000.jpg); background-position: right;">
-          <h1>Coming Soon</h1>
-          <p>Date</p>
-        </div>
-      </a>
-    </div>
 
-    <div class="info">
-      <a href="mailto:lisamarie.schumann@gmail.com">
-        <div class="btn-homepage">GET IN TOUCH</div>
-      </a>
-    </div>
+      <!--Overview-->
+      <div class="blog-preview-box">
+        <a href="blog-post-19-10-24.html" style="width: 50%; height: 100%;">
+          <div class="blog-preview-img" id="blog-2019-10-25">
+          </div>
+        </a>
+        <div class="blog-preview-info">
+          <div class="info">
+            <span>23rd October 2019</span>
+            <a href="blog-post-19-10-23.html">
+              <h4>Regex</h4>
+            </a>
+            <p>Really useful tool when building Regexes. <a href="https://www.debuggex.com">Regex</a></p>
+          </div>
+          <div class="tag">Javascript</div>
+        </div>
+      </div>
+
+      <div class="blog-preview-box">
+        <a href="blog-post-19-10-24.html" style="width: 50%; height: 100%;">
+          <div class="blog-preview-img" id="blog-2019-10-24">
+          </div>
+        </a>
+        <div class="blog-preview-info">
+          <div class="info">
+            <span>24th September 2019</span>
+            <a href="blog-post-19-09-24.html">
+              <h4>Append items</h4>
+            </a>
+            <p>Easy fix for appending modules.</p>
+          </div>
+          <div class="tag">Javascript</div>
+        </div>
+      </div>
+
+      <div class="blog-preview-box">
+        <a href="blog-post-19-05-29.html" style="width: 50%; height: 100%;">
+          <div class="blog-preview-img" id="blog-2019-05-29"></div>
+        </a>
+        <div class="blog-preview-info">
+          <div class="info">
+            <span>29th May 2019</span>
+            <a href="blog-post-19-05-29.html">
+              <h4>Navigation Alignment</h4>
+            </a>
+            <p>Struggeling to align the navigation? This one might be for you.</p>
+          </div>
+          <div class="tag">CSS</div>
+        </div>
+      </div>
+
+      <!--Get in touch-->
+      <div class="info">
+        <a href="mailto:lisamarie.schumann@gmail.com">
+          <div class="btn-homepage">GET IN TOUCH</div>
+        </a>
+      </div>
 
   </main>
 
