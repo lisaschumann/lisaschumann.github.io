@@ -10,89 +10,6 @@
   <link href="../resources/css/reset.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
   <link href="../resources/css/style.css" type="text/css" rel="stylesheet">
-  <script>
-    // Navigation Anchor with correct margin to display sections
-    (function (document, history, location) {
-      var HISTORY_SUPPORT = !!(history && history.pushState);
-
-      var anchorScrolls = {
-        //ANCHOR_REGEX: /^#[^ ]+$/
-        ANCHOR_REGEX: /^[\/a-z0-9-.]*#[^\s]+$/,
-        OFFSET_HEIGHT_PX: 58,
-
-        /**
-         * Establish events, and fix initial scroll position if a hash is provided.
-         */
-        init: function () {
-          this.scrollToCurrent();
-          window.addEventListener('hashchange', this.scrollToCurrent.bind(this));
-          document.body.addEventListener('click', this.delegateAnchors.bind(this));
-        },
-
-        /**
-         * Return the offset amount to deduct from the normal scroll position.
-         * Modify as appropriate to allow for dynamic calculations
-         */
-        getFixedOffset: function () {
-          return this.OFFSET_HEIGHT_PX;
-        },
-
-        /**
-         * If the provided href is an anchor which resolves to an element on the
-         * page, scroll to it.
-         * @param  {String} href
-         * @return {Boolean} - Was the href an anchor.
-         */
-        scrollIfAnchor: function (href, pushToHistory) {
-          var match, rect, anchorOffset;
-
-          if (!this.ANCHOR_REGEX.test(href)) {
-            return false;
-          }
-
-          match = document.getElementById(href.slice(1));
-
-          if (match) {
-            rect = match.getBoundingClientRect();
-            anchorOffset = window.pageYOffset + rect.top - this.getFixedOffset();
-            window.scrollTo(window.pageXOffset, anchorOffset);
-
-            // Add the state to history as-per normal anchor links
-            if (HISTORY_SUPPORT && pushToHistory) {
-              history.pushState({}, document.title, location.pathname + href);
-            }
-          }
-
-          return !!match;
-        },
-
-        /**
-         * Attempt to scroll to the current location's hash.
-         */
-        scrollToCurrent: function () {
-          this.scrollIfAnchor(window.location.hash);
-        },
-
-        /**
-         * If the click event's target was an anchor, fix the scroll position.
-         */
-        delegateAnchors: function (e) {
-          var elem = e.target;
-
-          if (
-            elem.nodeName === 'A' &&
-            this.scrollIfAnchor(elem.getAttribute('href'), true)
-          ) {
-            e.preventDefault();
-          }
-        }
-      };
-
-      window.addEventListener(
-        'DOMContentLoaded', anchorScrolls.init.bind(anchorScrolls)
-      );
-    })(window.document, window.history, window.location);
-  </script>
 </head>
 
 <body id="top-home">
@@ -123,7 +40,7 @@
 
       <!--Overview-->
       <div class="blog-preview-box">
-        <a href="blog-post-19-10-24.html" style="width: 50%; height: 100%;">
+        <a href="blog-post-19-10-24.html">
           <div class="blog-preview-img" id="blog-2019-10-25">
           </div>
         </a>
@@ -133,14 +50,14 @@
             <a href="blog-post-19-10-23.html">
               <h4>Regex</h4>
             </a>
-            <p>Really useful tool when building Regexes. <a href="https://www.debuggex.com">Regex</a></p>
+            <p>Really useful tool when building Regexes.</p>
           </div>
           <div class="tag">Javascript</div>
         </div>
       </div>
 
       <div class="blog-preview-box">
-        <a href="blog-post-19-10-24.html" style="width: 50%; height: 100%;">
+        <a href="blog-post-19-10-24.html">
           <div class="blog-preview-img" id="blog-2019-10-24">
           </div>
         </a>
@@ -157,7 +74,7 @@
       </div>
 
       <div class="blog-preview-box">
-        <a href="blog-post-19-05-29.html" style="width: 50%; height: 100%;">
+        <a href="blog-post-19-05-29.html">
           <div class="blog-preview-img" id="blog-2019-05-29"></div>
         </a>
         <div class="blog-preview-info">
